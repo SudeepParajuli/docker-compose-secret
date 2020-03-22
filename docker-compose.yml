@@ -1,0 +1,16 @@
+version: '3.5'
+
+services:
+  flask-app-service:
+    build: ./app
+    volumes:
+      - ./app:/usr/src/app
+      - .:/user/src
+    ports:
+      - 5555:9999
+    secrets:
+      - my_secret
+
+secrets:
+  my_secret:
+    file: ./super_duper_secret.txt
